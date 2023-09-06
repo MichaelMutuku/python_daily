@@ -1,6 +1,6 @@
-
 """
 Problem 13: https://projecteuler.net/problem=13
+
 Problem Statement:
 Work out the first ten digits of the sum of the following one-hundred 50-digit
 numbers.
@@ -12,6 +12,7 @@ def solution():
     """
     Returns the first ten digits of the sum of the array elements
     from the file num.txt
+
     >>> solution()
     '5537376230'
     """

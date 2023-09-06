@@ -1,9 +1,13 @@
 """
 Project Euler Problem 7: https://projecteuler.net/problem=7
+
 10001st prime
+
 By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we
 can see that the 6th prime is 13.
+
 What is the 10001st prime number?
+
 References:
     - https://en.wikipedia.org/wiki/Prime_number
 """
@@ -15,6 +19,7 @@ def is_prime(number: int) -> bool:
     A number is prime if it has exactly two factors: 1 and itself.
     Returns boolean representing primality of given number (i.e., if the
     result is true, then the number is indeed prime else it is not).
+
     >>> is_prime(2)
     True
     >>> is_prime(3)
@@ -46,6 +51,7 @@ def is_prime(number: int) -> bool:
 def solution(nth: int = 10001) -> int:
     """
     Returns the n-th prime number.
+
     >>> solution(6)
     13
     >>> solution(1)
