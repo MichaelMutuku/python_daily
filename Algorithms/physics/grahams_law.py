@@ -1,12 +1,16 @@
 """
 Title: Graham's Law of Effusion
+
 Description: Graham's law of effusion states that the rate of effusion of a gas is
 inversely proportional to the square root of the molar mass of its particles:
+
 r1/r2 = sqrt(m2/m1)
+
 r1 = Rate of effusion for the first gas.
 r2 = Rate of effusion for the second gas.
 m1 = Molar mass of the first gas.
 m2 = Molar mass of the second gas.
+
 (Description adapted from https://en.wikipedia.org/wiki/Graham%27s_law)
 """
 
@@ -21,6 +25,7 @@ def validate(*values: float) -> bool:
     effusion_rate_2: Effustion rate of second gas (m^2/s, mm^2/s, etc.)
     molar_mass_1: Molar mass of the first gas (g/mol, kg/kmol, etc.)
     molar_mass_2: Molar mass of the second gas (g/mol, kg/kmol, etc.)
+
     Returns:
     --------
     >>> validate(2.016, 4.002)
@@ -40,6 +45,7 @@ def effusion_ratio(molar_mass_1: float, molar_mass_2: float) -> float | ValueErr
     -----------------
     molar_mass_1: Molar mass of the first gas (g/mol, kg/kmol, etc.)
     molar_mass_2: Molar mass of the second gas (g/mol, kg/kmol, etc.)
+
     Returns:
     --------
     >>> effusion_ratio(2.016, 4.002)
@@ -67,6 +73,7 @@ def first_effusion_rate(
     effusion_rate: Effustion rate of second gas (m^2/s, mm^2/s, etc.)
     molar_mass_1: Molar mass of the first gas (g/mol, kg/kmol, etc.)
     molar_mass_2: Molar mass of the second gas (g/mol, kg/kmol, etc.)
+
     Returns:
     --------
     >>> first_effusion_rate(1, 2.016, 4.002)
@@ -102,6 +109,7 @@ def second_effusion_rate(
     effusion_rate: Effustion rate of second gas (m^2/s, mm^2/s, etc.)
     molar_mass_1: Molar mass of the first gas (g/mol, kg/kmol, etc.)
     molar_mass_2: Molar mass of the second gas (g/mol, kg/kmol, etc.)
+
     Returns:
     --------
     >>> second_effusion_rate(1, 2.016, 4.002)
@@ -137,6 +145,7 @@ def first_molar_mass(
     molar_mass: Molar mass of the first gas (g/mol, kg/kmol, etc.)
     effusion_rate_1: Effustion rate of first gas (m^2/s, mm^2/s, etc.)
     effusion_rate_2: Effustion rate of second gas (m^2/s, mm^2/s, etc.)
+
     Returns:
     --------
     >>> first_molar_mass(2, 1.408943, 0.709752)
@@ -172,6 +181,7 @@ def second_molar_mass(
     molar_mass: Molar mass of the first gas (g/mol, kg/kmol, etc.)
     effusion_rate_1: Effustion rate of first gas (m^2/s, mm^2/s, etc.)
     effusion_rate_2: Effustion rate of second gas (m^2/s, mm^2/s, etc.)
+
     Returns:
     --------
     >>> second_molar_mass(2, 1.408943, 0.709752)

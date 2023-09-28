@@ -2,7 +2,9 @@
 Description : Centripetal force is the force acting on an object in
 curvilinear motion directed towards the axis of rotation
 or centre of curvature.
+
 The unit of centripetal force is newton.
+
 The centripetal force is always directed perpendicular to the
 direction of the object’s displacement. Using Newton’s second
 law of motion, it is found that the centripetal force of an object
@@ -14,6 +16,7 @@ the centripetal force will be quadrupled. Mathematically it is written as:
 F = mv²/r
 Where, F is the Centripetal force, m is the mass of the object, v is the
 speed or velocity of the object and r is the radius.
+
 Reference: https://byjus.com/physics/centripetal-and-centrifugal-force/
 """
 
@@ -21,6 +24,7 @@ Reference: https://byjus.com/physics/centripetal-and-centrifugal-force/
 def centripetal(mass: float, velocity: float, radius: float) -> float:
     """
     The Centripetal Force formula is given as: (m*v*v)/r
+
     >>> round(centripetal(15.5,-30,10),2)
     1395.0
     >>> round(centripetal(10,15,5),2)

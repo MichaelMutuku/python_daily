@@ -2,32 +2,43 @@
 Question:
 Given a binary matrix mat of size n * m, find out the maximum size square
 sub-matrix with all 1s.
+
 ---
 Example 1:
+
 Input:
 n = 2, m = 2
 mat = [[1, 1],
        [1, 1]]
+
 Output:
 2
+
 Explanation: The maximum size of the square
 sub-matrix is 2. The matrix itself is the
 maximum sized sub-matrix in this case.
 ---
 Example 2
+
 Input:
 n = 2, m = 2
 mat = [[0, 0],
        [0, 0]]
 Output: 0
+
 Explanation: There is no 1 in the matrix.
+
+
 Approach:
 We initialize another matrix (dp) with the same dimensions
 as the original one initialized with all 0’s.
+
 dp_array(i,j) represents the side length of the maximum square whose
 bottom right corner is the cell with index (i,j) in the original matrix.
+
 Starting from index (0,0), for every 1 found in the original matrix,
 we update the value of the current element as
+
 dp_array(i,j)=dp_array(dp(i−1,j),dp_array(i−1,j−1),dp_array(i,j−1)) + 1.
 """
 
@@ -38,7 +49,9 @@ def largest_square_area_in_matrix_top_down_approch(
     """
     Function updates the largest_square_area[0], if recursive call found
     square with maximum area.
+
     We aren't using dp_array here, so the time complexity would be exponential.
+
     >>> largest_square_area_in_matrix_top_down_approch(2, 2, [[1,1], [1,1]])
     2
     >>> largest_square_area_in_matrix_top_down_approch(2, 2, [[0,0], [0,0]])
@@ -72,7 +85,9 @@ def largest_square_area_in_matrix_top_down_approch_with_dp(
     """
     Function updates the largest_square_area[0], if recursive call found
     square with maximum area.
+
     We are using dp_array here, so the time complexity would be O(N^2).
+
     >>> largest_square_area_in_matrix_top_down_approch_with_dp(2, 2, [[1,1], [1,1]])
     2
     >>> largest_square_area_in_matrix_top_down_approch_with_dp(2, 2, [[0,0], [0,0]])
@@ -111,10 +126,12 @@ def largest_square_area_in_matrix_bottom_up(
 ) -> int:
     """
     Function updates the largest_square_area, using bottom up approach.
+
     >>> largest_square_area_in_matrix_bottom_up(2, 2, [[1,1], [1,1]])
     2
     >>> largest_square_area_in_matrix_bottom_up(2, 2, [[0,0], [0,0]])
     0
+
     """
     dp_array = [[0] * (cols + 1) for _ in range(rows + 1)]
     largest_square_area = 0
@@ -139,6 +156,7 @@ def largest_square_area_in_matrix_bottom_up_space_optimization(
     """
     Function updates the largest_square_area, using bottom up
     approach. with space optimization.
+
     >>> largest_square_area_in_matrix_bottom_up_space_optimization(2, 2, [[1,1], [1,1]])
     2
     >>> largest_square_area_in_matrix_bottom_up_space_optimization(2, 2, [[0,0], [0,0]])

@@ -5,6 +5,7 @@ from timeit import timeit
 def num_digits(n: int) -> int:
     """
     Find the number of digits in a number.
+
     >>> num_digits(12345)
     5
     >>> num_digits(123)
@@ -30,6 +31,7 @@ def num_digits_fast(n: int) -> int:
     """
     Find the number of digits in a number.
     abs() is used as logarithm for negative numbers is not defined.
+
     >>> num_digits_fast(12345)
     5
     >>> num_digits_fast(123)
@@ -48,6 +50,7 @@ def num_digits_faster(n: int) -> int:
     """
     Find the number of digits in a number.
     abs() is used for negative numbers
+
     >>> num_digits_faster(12345)
     5
     >>> num_digits_faster(123)

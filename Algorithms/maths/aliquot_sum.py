@@ -9,6 +9,7 @@ def aliquot_sum(input_num: int) -> int:
     @return: the aliquot sum of input_num, if input_num is positive.
     Otherwise, raise a ValueError
     Wikipedia Explanation: https://en.wikipedia.org/wiki/Aliquot_sum
+
     >>> aliquot_sum(15)
     9
     >>> aliquot_sum(6)
@@ -45,5 +46,3 @@ if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
-Footer
-

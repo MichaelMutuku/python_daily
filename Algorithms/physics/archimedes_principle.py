@@ -1,8 +1,10 @@
 """
 Calculates buoyant force on object submerged within static fluid.
 Discovered by greek mathematician, Archimedes. The principle is named after him.
+
 Equation for calculating buoyant force:
 Fb = ρ * V * g
+
 Source:
 - https://en.wikipedia.org/wiki/Archimedes%27_principle
 """
@@ -23,6 +25,7 @@ def archimedes_principle(
             Default is Earth Gravity
     returns:
         buoyant force on object in Newtons
+
     >>> archimedes_principle(fluid_density=997, volume=0.5, gravity=9.8)
     4885.3
     >>> archimedes_principle(fluid_density=997, volume=0.7)

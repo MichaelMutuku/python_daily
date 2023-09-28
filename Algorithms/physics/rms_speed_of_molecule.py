@@ -4,6 +4,7 @@ contained in a gas, defined as,
  -----------------
  | Vrms = √3RT/M |
  -----------------
+
 In Kinetic Molecular Theory, gasified particles are in a condition of constant random
 motion; each particle moves at a completely different pace, perpetually clashing and
 changing directions consistently velocity is used to describe the movement of gas

@@ -24,17 +24,22 @@ def square_root_iterative(
     """
     Square root is aproximated using Newtons method.
     https://en.wikipedia.org/wiki/Newton%27s_method
+
     >>> all(abs(square_root_iterative(i)-math.sqrt(i)) <= .00000000000001
     ...     for i in range(500))
     True
+
     >>> square_root_iterative(-1)
     Traceback (most recent call last):
         ...
     ValueError: math domain error
+
     >>> square_root_iterative(4)
     2.0
+
     >>> square_root_iterative(3.2)
     1.788854381999832
+
     >>> square_root_iterative(140)
     11.832159566199232
     """

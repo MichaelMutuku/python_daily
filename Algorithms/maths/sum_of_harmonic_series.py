@@ -3,9 +3,11 @@ def sum_of_harmonic_progression(
 ) -> float:
     """
     https://en.wikipedia.org/wiki/Harmonic_progression_(mathematics)
+
     Find the sum of n terms in an harmonic progression.  The calculation starts with the
     first_term and loops adding the common difference of Arithmetic Progression by which
     the given Harmonic Progression is linked.
+
     >>> sum_of_harmonic_progression(1 / 2, 2, 2)
     0.75
     >>> sum_of_harmonic_progression(1 / 5, 5, 5)

@@ -10,19 +10,24 @@ T = TypeVar("T")
 class LRUCache(Generic[T]):
     """
     Page Replacement Algorithm, Least Recently Used (LRU) Caching.
+
     >>> lru_cache: LRUCache[str | int] = LRUCache(4)
     >>> lru_cache.refer("A")
     >>> lru_cache.refer(2)
     >>> lru_cache.refer(3)
+
     >>> lru_cache
     LRUCache(4) => [3, 2, 'A']
+
     >>> lru_cache.refer("A")
     >>> lru_cache
     LRUCache(4) => ['A', 3, 2]
+
     >>> lru_cache.refer(4)
     >>> lru_cache.refer(5)
     >>> lru_cache
     LRUCache(4) => [5, 4, 'A', 3]
+
     """
 
     dq_store: deque[T]  # Cache store of keys

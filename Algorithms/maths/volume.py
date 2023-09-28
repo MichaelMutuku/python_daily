@@ -8,7 +8,7 @@ from __future__ import annotations
 from math import pi, pow
 
 
-def vol_cube(side_length: int | float) -> float:
+def vol_cube(side_length: float) -> float:
     """
     Calculate the Volume of a Cube.
     >>> vol_cube(1)
@@ -119,6 +119,7 @@ def vol_spheres_union(
     If centers_distance is 0 then it returns the volume of the larger sphere
     :return vol_sphere(radius_1) + vol_sphere(radius_2)
                 - vol_spheres_intersect(radius_1, radius_2, centers_distance)
+
     >>> vol_spheres_union(2, 2, 1)
     45.814892864851146
     >>> vol_spheres_union(1.56, 2.2, 1.4)
@@ -405,6 +406,7 @@ def vol_hollow_circular_cylinder(
 def vol_conical_frustum(height: float, radius_1: float, radius_2: float) -> float:
     """Calculate the Volume of a Conical Frustum.
     Wikipedia reference: https://en.wikipedia.org/wiki/Frustum
+
     >>> vol_conical_frustum(45, 7, 28)
     48490.482608158454
     >>> vol_conical_frustum(1, 1, 2)

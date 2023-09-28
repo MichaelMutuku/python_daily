@@ -1,8 +1,10 @@
 def double_factorial(num: int) -> int:
     """
     Compute double factorial using iterative method.
+
     To learn about the theory behind this algorithm:
     https://en.wikipedia.org/wiki/Double_factorial
+
     >>> import math
     >>> all(double_factorial(i) == math.prod(range(i, 0, -2)) for i in range(20))
     True

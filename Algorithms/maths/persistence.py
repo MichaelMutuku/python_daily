@@ -1,7 +1,9 @@
 def multiplicative_persistence(num: int) -> int:
     """
     Return the persistence of a given number.
+
     https://en.wikipedia.org/wiki/Persistence_of_a_number
+
     >>> multiplicative_persistence(217)
     2
     >>> multiplicative_persistence(-1)
@@ -26,7 +28,7 @@ def multiplicative_persistence(num: int) -> int:
         numbers = [int(i) for i in num_string]
 
         total = 1
-        for i in range(0, len(numbers)):
+        for i in range(len(numbers)):
             total *= numbers[i]
 
         num_string = str(total)
@@ -38,7 +40,9 @@ def multiplicative_persistence(num: int) -> int:
 def additive_persistence(num: int) -> int:
     """
     Return the persistence of a given number.
+
     https://en.wikipedia.org/wiki/Persistence_of_a_number
+
     >>> additive_persistence(199)
     3
     >>> additive_persistence(-1)
@@ -63,7 +67,7 @@ def additive_persistence(num: int) -> int:
         numbers = [int(i) for i in num_string]
 
         total = 0
-        for i in range(0, len(numbers)):
+        for i in range(len(numbers)):
             total += numbers[i]
 
         num_string = str(total)

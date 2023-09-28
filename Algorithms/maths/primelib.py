@@ -1,9 +1,13 @@
 """
 Created on Thu Oct  5 16:44:23 2017
+
 @author: Christian Bender
+
 This Python library contains some useful functions to deal with
 prime numbers and whole numbers.
+
 Overview:
+
 is_prime(number)
 sieve_er(N)
 get_prime_numbers(N)
@@ -12,19 +16,26 @@ greatest_prime_factor(number)
 smallest_prime_factor(number)
 get_prime(n)
 get_primes_between(pNumber1, pNumber2)
+
 ----
+
 is_even(number)
 is_odd(number)
 gcd(number1, number2)  // greatest common divisor
 kg_v(number1, number2)  // least common multiple
 get_divisors(number)    // all divisors of 'number' inclusive 1, number
 is_perfect_number(number)
+
 NEW-FUNCTIONS
+
 simplify_fraction(numerator, denominator)
 factorial (n) // n!
 fib (n) // calculate the n-th fibonacci term.
+
 -----
+
 goldbach(number)  // Goldbach's assumption
+
 """
 
 from math import sqrt
@@ -48,7 +59,6 @@ def is_prime(number: int) -> bool:
         status = False
 
     for divisor in range(2, int(round(sqrt(number))) + 1):
-
         # if 'number' divisible by 'divisor' then sets 'status'
         # of false and break up the loop.
         if number % divisor == 0:
@@ -68,8 +78,10 @@ def sieve_er(n):
     """
     input: positive integer 'N' > 2
     returns a list of prime numbers from 2 up to N.
+
     This function implements the algorithm called
     sieve of erathostenes.
+
     """
 
     # precondition
@@ -82,9 +94,7 @@ def sieve_er(n):
 
     # actual sieve of erathostenes
     for i in range(len(begin_list)):
-
         for j in range(i + 1, len(begin_list)):
-
             if (begin_list[i] != 0) and (begin_list[j] % begin_list[i] == 0):
                 begin_list[j] = 0
 
@@ -115,9 +125,7 @@ def get_prime_numbers(n):
     # iterates over all numbers between 2 up to N+1
     # if a number is prime then appends to list 'ans'
     for number in range(2, n + 1):
-
         if is_prime(number):
-
             ans.append(number)
 
     # precondition
@@ -146,15 +154,12 @@ def prime_factorization(number):
 
     quotient = number
 
-    if number == 0 or number == 1:
-
+    if number in {0, 1}:
         ans.append(number)
 
     # if 'number' not prime then builds the prime factorization of 'number'
     elif not is_prime(number):
-
         while quotient != 1:
-
             if is_prime(factor) and (quotient % factor == 0):
                 ans.append(factor)
                 quotient /= factor
@@ -285,11 +290,9 @@ def goldbach(number):
     loop = True
 
     while i < len_pn and loop:
-
         j = i + 1
 
         while j < len_pn and loop:
-
             if prime_numbers[i] + prime_numbers[j] == number:
                 loop = False
                 ans.append(prime_numbers[i])
@@ -332,7 +335,6 @@ def gcd(number1, number2):
     rest = 0
 
     while number2 != 0:
-
         rest = number1 % number2
         number1 = number2
         number2 = rest
@@ -367,13 +369,11 @@ def kg_v(number1, number2):
 
     # for kgV (x,1)
     if number1 > 1 and number2 > 1:
-
         # builds the prime factorization of 'number1' and 'number2'
         prime_fac_1 = prime_factorization(number1)
         prime_fac_2 = prime_factorization(number2)
 
     elif number1 == 1 or number2 == 1:
-
         prime_fac_1 = []
         prime_fac_2 = []
         ans = max(number1, number2)
@@ -385,11 +385,8 @@ def kg_v(number1, number2):
 
     # iterates through primeFac1
     for n in prime_fac_1:
-
         if n not in done:
-
             if n in prime_fac_2:
-
                 count1 = prime_fac_1.count(n)
                 count2 = prime_fac_2.count(n)
 
@@ -397,7 +394,6 @@ def kg_v(number1, number2):
                     ans *= n
 
             else:
-
                 count1 = prime_fac_1.count(n)
 
                 for _ in range(count1):
@@ -407,9 +403,7 @@ def kg_v(number1, number2):
 
     # iterates through primeFac2
     for n in prime_fac_2:
-
         if n not in done:
-
             count2 = prime_fac_2.count(n)
 
             for _ in range(count2):
@@ -442,7 +436,6 @@ def get_prime(n):
     ans = 2  # this variable holds the answer
 
     while index < n:
-
         index += 1
 
         ans += 1  # counts to the next number
@@ -486,7 +479,6 @@ def get_primes_between(p_number_1, p_number_2):
         number += 1
 
     while number < p_number_2:
-
         ans.append(number)
 
         number += 1
@@ -521,7 +513,6 @@ def get_divisors(n):
     ans = []  # will be returned.
 
     for divisor in range(1, n + 1):
-
         if n % divisor == 0:
             ans.append(divisor)
 
@@ -625,7 +616,6 @@ def fib(n):
     ans = 1  # this will be return
 
     for _ in range(n - 1):
-
         tmp = ans
         ans += fib1
         fib1 = tmp

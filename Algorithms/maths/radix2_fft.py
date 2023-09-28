@@ -9,30 +9,39 @@ import numpy as np
 class FFT:
     """
     Fast Polynomial Multiplication using radix-2 fast Fourier Transform.
+
     Reference:
     https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#The_radix-2_DIT_case
+
     For polynomials of degree m and n the algorithms has complexity
     O(n*logn + m*logm)
+
     The main part of the algorithm is split in two parts:
         1) __DFT: We compute the discrete fourier transform (DFT) of A and B using a
         bottom-up dynamic approach -
         2) __multiply: Once we obtain the DFT of A*B, we can similarly
         invert it to obtain A*B
+
     The class FFT takes two polynomials A and B with complex coefficients as arguments;
     The two polynomials should be represented as a sequence of coefficients starting
     from the free term. Thus, for instance x + 2*x^3 could be represented as
     [0,1,0,2] or (0,1,0,2). The constructor adds some zeros at the end so that the
     polynomials have the same length which is a power of 2 at least the length of
     their product.
+
     Example:
+
     Create two polynomials as sequences
     >>> A = [0, 1, 0, 2]  # x+2x^3
     >>> B = (2, 3, 4, 0)  # 2+3x+4x^2
+
     Create an FFT object with them
     >>> x = FFT(A, B)
+
     Print product
     >>> x.product  # 2x + 3x^2 + 8x^3 + 4x^4 + 6x^5
     [(-0+0j), (2+0j), (3+0j), (8+0j), (6+0j), (8+0j)]
+
     __str__ test
     >>> print(x)
     A = 0*x^0 + 1*x^1 + 2*x^0 + 3*x^2
@@ -71,10 +80,7 @@ class FFT:
 
     # Discrete fourier transform of A and B
     def __dft(self, which):
-        if which == "A":
-            dft = [[x] for x in self.polyA]
-        else:
-            dft = [[x] for x in self.polyB]
+        dft = [[x] for x in self.polyA] if which == "A" else [[x] for x in self.polyB]
         # Corner case
         if len(dft) <= 1:
             return dft[0]
@@ -161,7 +167,7 @@ class FFT:
             f"{coef}*x^{i}" for coef, i in enumerate(self.product)
         )
 
-        return "\n".join((a, b, c))
+        return f"{a}\n{b}\n{c}"
 
 
 # Unit tests

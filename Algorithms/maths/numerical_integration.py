@@ -7,12 +7,11 @@ from collections.abc import Callable
 
 
 def trapezoidal_area(
-    fnc: Callable[[int | float], int | float],
-    x_start: int | float,
-    x_end: int | float,
+    fnc: Callable[[float], float],
+    x_start: float,
+    x_end: float,
     steps: int = 100,
 ) -> float:
-
     """
     Treats curve as a collection of linear lines and sums the area of the
     trapezium shape they form
@@ -21,14 +20,17 @@ def trapezoidal_area(
     :param x_end: right end point to indicate end of line segment
     :param steps: an accuracy gauge; more steps increases the accuracy
     :return: a float representing the length of the curve
+
     >>> def f(x):
     ...    return 5
     >>> '%.3f' % trapezoidal_area(f, 12.0, 14.0, 1000)
     '10.000'
+
     >>> def f(x):
     ...    return 9*x**2
     >>> '%.4f' % trapezoidal_area(f, -4.0, 0, 10000)
     '192.0000'
+
     >>> '%.4f' % trapezoidal_area(f, -4.0, 4.0, 10000)
     '384.0000'
     """
@@ -37,7 +39,6 @@ def trapezoidal_area(
     area = 0.0
 
     for _ in range(steps):
-
         # Approximates small segments of curve as linear and solve
         # for trapezoidal area
         x2 = (x_end - x_start) / steps + x1

@@ -1,4 +1,3 @@
-
 """The following implementation assumes that the activities
 are already sorted according to their finish time"""
 

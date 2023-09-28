@@ -2,6 +2,7 @@
 def sum_of_series(first_term: int, common_diff: int, num_of_terms: int) -> float:
     """
     Find the sum of n terms in an arithmetic progression.
+
     >>> sum_of_series(1, 1, 10)
     55.0
     >>> sum_of_series(1, 10, 100)

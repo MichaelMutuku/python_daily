@@ -1,7 +1,9 @@
 """
 Extended Euclidean Algorithm.
+
 Finds 2 numbers a and b such that it satisfies
 the equation am + bn = gcd(m, n) (a.k.a Bezout's Identity)
+
 https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
 """
 
@@ -18,22 +20,31 @@ import sys
 def extended_euclidean_algorithm(a: int, b: int) -> tuple[int, int]:
     """
     Extended Euclidean Algorithm.
+
     Finds 2 numbers a and b such that it satisfies
     the equation am + bn = gcd(m, n) (a.k.a Bezout's Identity)
+
     >>> extended_euclidean_algorithm(1, 24)
     (1, 0)
+
     >>> extended_euclidean_algorithm(8, 14)
     (2, -1)
+
     >>> extended_euclidean_algorithm(240, 46)
     (-9, 47)
+
     >>> extended_euclidean_algorithm(1, -4)
     (1, 0)
+
     >>> extended_euclidean_algorithm(-2, -4)
     (-1, 0)
+
     >>> extended_euclidean_algorithm(0, -4)
     (0, -1)
+
     >>> extended_euclidean_algorithm(2, 0)
     (1, 0)
+
     """
     # base cases
     if abs(a) == 1:

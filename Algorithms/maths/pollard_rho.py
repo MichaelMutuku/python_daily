@@ -16,6 +16,7 @@ def pollard_rho(
     the specified number of attempts or within the specified number of steps.
     If ``num`` is prime, this algorithm is guaranteed to return None.
     https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm
+
     >>> pollard_rho(18446744073709551617)
     274177
     >>> pollard_rho(97546105601219326301)
@@ -58,6 +59,7 @@ def pollard_rho(
         """
         Returns a pseudorandom value modulo ``modulus`` based on the
         input ``value`` and attempt-specific ``step`` size.
+
         >>> rand_fn(0, 0, 0)
         Traceback (most recent call last):
             ...

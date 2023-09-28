@@ -6,6 +6,7 @@ from string import ascii_letters, ascii_lowercase, ascii_uppercase, digits, punc
 def password_generator(length: int = 8) -> str:
     """
     Password Generator allows you to generate a random password of length N.
+
     >>> len(password_generator())
     8
     >>> len(password_generator(length=16))

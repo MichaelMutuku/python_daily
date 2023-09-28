@@ -9,8 +9,10 @@ def hamming(n_element: int) -> list:
     """
     This function creates an ordered list of n length as requested, and afterwards
     returns the last value of the list. It must be given a positive integer.
+
     :param n_element: The number of elements on the list
     :return: The nth element of the list
+
     >>> hamming(5)
     [1, 2, 3, 4, 5]
     >>> hamming(10)

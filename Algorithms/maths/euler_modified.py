@@ -1,4 +1,3 @@
-
 from collections.abc import Callable
 
 import numpy as np
@@ -6,18 +5,21 @@ import numpy as np
 
 def euler_modified(
     ode_func: Callable, y0: float, x0: float, step_size: float, x_end: float
-) -> np.array:
+) -> np.ndarray:
     """
     Calculate solution at each step to an ODE using Euler's Modified Method
     The Euler Method is straightforward to implement, but can't give accurate solutions.
     So, some changes were proposed to improve accuracy.
+
     https://en.wikipedia.org/wiki/Euler_method
+
     Arguments:
     ode_func -- The ode as a function of x and y
     y0 -- the initial value for y
     x0 -- the initial value for x
     stepsize -- the increment value for x
     x_end -- the end value for x
+
     >>> # the exact solution is math.exp(x)
     >>> def f1(x, y):
     ...     return -2*x*(y**2)

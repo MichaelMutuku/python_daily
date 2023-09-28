@@ -1,7 +1,9 @@
 #!/usr/bin/python
 
 """
+
 A Framework of Back Propagation Neural Network（BP） model
+
 Easy to use:
     * add many layers as you want ！！！
     * clearly see how the loss decreasing
@@ -9,16 +11,18 @@ Easy to expand:
     * more activation functions
     * more loss functions
     * more optimization method
+
 Author: Stephen Lee
 Github : https://github.com/RiptideBo
 Date: 2017.11.23
+
 """
 import numpy as np
 from matplotlib import pyplot as plt
 
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-1 * x))
+def sigmoid(x: np.ndarray) -> np.ndarray:
+    return 1 / (1 + np.exp(-x))
 
 
 class DenseLayer:

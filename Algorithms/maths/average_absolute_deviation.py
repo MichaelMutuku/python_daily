@@ -2,6 +2,7 @@ def average_absolute_deviation(nums: list[int]) -> float:
     """
     Return the average absolute deviation of a list of numbers.
     Wiki: https://en.wikipedia.org/wiki/Average_absolute_deviation
+
     >>> average_absolute_deviation([0])
     0.0
     >>> average_absolute_deviation([4, 1, 3, 2])

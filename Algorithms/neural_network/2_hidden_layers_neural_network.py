@@ -13,6 +13,7 @@ class TwoHiddenLayerNeuralNetwork:
         """
         This function initializes the TwoHiddenLayerNeuralNetwork class with random
         weights for every layer and initializes predicted output with zeroes.
+
         input_array : input values for training the neural network (i.e training data) .
         output_array : expected output values of the given inputs.
         """
@@ -55,8 +56,10 @@ class TwoHiddenLayerNeuralNetwork:
         The information moves in only one direction i.e. forward from the input nodes,
         through the two hidden nodes and to the output nodes.
         There are no cycles or loops in the network.
+
         Return layer_between_second_hidden_layer_and_output
             (i.e the last layer of the neural network).
+
         >>> input_val = numpy.array(([0, 0, 0], [0, 0, 0], [0, 0, 0]), dtype=float)
         >>> output_val = numpy.array(([0], [0], [0]), dtype=float)
         >>> nn = TwoHiddenLayerNeuralNetwork(input_val, output_val)
@@ -96,6 +99,7 @@ class TwoHiddenLayerNeuralNetwork:
         Function for fine-tuning the weights of the neural net based on the
         error rate obtained in the previous epoch (i.e., iteration).
         Updation is done using derivative of sogmoid activation function.
+
         >>> input_val = numpy.array(([0, 0, 0], [0, 0, 0], [0, 0, 0]), dtype=float)
         >>> output_val = numpy.array(([0], [0], [0]), dtype=float)
         >>> nn = TwoHiddenLayerNeuralNetwork(input_val, output_val)
@@ -156,10 +160,12 @@ class TwoHiddenLayerNeuralNetwork:
         Performs the feedforwarding and back propagation process for the
         given number of iterations.
         Every iteration will update the weights of neural network.
+
         output : real output values,required for calculating loss.
         iterations : number of times the weights are to be updated.
         give_loss : boolean value, If True then prints loss for each iteration,
                     If False then nothing is printed
+
         >>> input_val = numpy.array(([0, 0, 0], [0, 1, 0], [0, 0, 1]), dtype=float)
         >>> output_val = numpy.array(([0], [1], [1]), dtype=float)
         >>> nn = TwoHiddenLayerNeuralNetwork(input_val, output_val)
@@ -180,10 +186,12 @@ class TwoHiddenLayerNeuralNetwork:
         """
         Predict's the output for the given input values using
         the trained neural network.
+
         The output value given by the model ranges in-between 0 and 1.
         The predict function returns 1 if the model value is greater
         than the threshold value else returns 0,
         as the real output values are in binary.
+
         >>> input_val = numpy.array(([0, 0, 0], [0, 1, 0], [0, 0, 1]), dtype=float)
         >>> output_val = numpy.array(([0], [1], [1]), dtype=float)
         >>> nn = TwoHiddenLayerNeuralNetwork(input_val, output_val)
@@ -219,7 +227,9 @@ class TwoHiddenLayerNeuralNetwork:
 def sigmoid(value: numpy.ndarray) -> numpy.ndarray:
     """
     Applies sigmoid activation function.
+
     return normalized values
+
     >>> sigmoid(numpy.array(([1, 0, 2], [1, 0, 0]), dtype=numpy.float64))
     array([[0.73105858, 0.5       , 0.88079708],
            [0.73105858, 0.5       , 0.5       ]])
@@ -230,7 +240,9 @@ def sigmoid(value: numpy.ndarray) -> numpy.ndarray:
 def sigmoid_derivative(value: numpy.ndarray) -> numpy.ndarray:
     """
     Provides the derivative value of the sigmoid function.
+
     returns derivative of the sigmoid value
+
     >>> sigmoid_derivative(numpy.array(([1, 0, 2], [1, 0, 0]), dtype=numpy.float64))
     array([[ 0.,  0., -2.],
            [ 0.,  0.,  0.]])
@@ -247,6 +259,7 @@ def example() -> int:
     Model is trained for a fixed amount of iterations then the predict method is called.
     In this example the output is divided into 2 classes i.e. binary classification,
     the two classes are represented by '0' and '1'.
+
     >>> example() in (0, 1)
     True
     """

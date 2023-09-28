@@ -1,42 +1,102 @@
-#!/usr/bin/env python3
+"""
+Question:
+You are given an array of distinct integers and you have to tell how many
+different ways of selecting the elements from the array are there such that
+the sum of chosen elements is equal to the target number tar.
+
+Example
+
+Input:
+N = 3
+target = 5
+array = [1, 2, 5]
+
+Output:
+9
+
+Approach:
+The basic idea is to go over recursively to find the way such that the sum
+of chosen elements is “tar”. For every element, we have two choices
+    1. Include the element in our set of chosen elements.
+    2. Don’t include the element in our set of chosen elements.
+"""
 
 
-def climb_stairs(number_of_steps: int) -> int:
+def combination_sum_iv(n: int, array: list[int], target: int) -> int:
     """
-    LeetCdoe No.70: Climbing Stairs
-    Distinct ways to climb a number_of_steps staircase where each time you can either
-    climb 1 or 2 steps.
+    Function checks the all possible combinations, and returns the count
+    of possible combination in exponential Time Complexity.
 
-    Args:
-        number_of_steps: number of steps on the staircase
-
-    Returns:
-        Distinct ways to climb a number_of_steps staircase
-
-    Raises:
-        AssertionError: number_of_steps not positive integer
-
-    >>> climb_stairs(3)
-    3
-    >>> climb_stairs(1)
-    1
-    >>> climb_stairs(-7)  # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    AssertionError: number_of_steps needs to be positive integer, your input -7
+    >>> combination_sum_iv(3, [1,2,5], 5)
+    9
     """
-    assert (
-        isinstance(number_of_steps, int) and number_of_steps > 0
-    ), f"number_of_steps needs to be positive integer, your input {number_of_steps}"
-    if number_of_steps == 1:
-        return 1
-    previous, current = 1, 1
-    for _ in range(number_of_steps - 1):
-        current, previous = current + previous, current
-    return current
+
+    def count_of_possible_combinations(target: int) -> int:
+        if target < 0:
+            return 0
+        if target == 0:
+            return 1
+        return sum(count_of_possible_combinations(target - item) for item in array)
+
+    return count_of_possible_combinations(target)
+
+
+def combination_sum_iv_dp_array(n: int, array: list[int], target: int) -> int:
+    """
+    Function checks the all possible combinations, and returns the count
+    of possible combination in O(N^2) Time Complexity as we are using Dynamic
+    programming array here.
+
+    >>> combination_sum_iv_dp_array(3, [1,2,5], 5)
+    9
+    """
+
+    def count_of_possible_combinations_with_dp_array(
+        target: int, dp_array: list[int]
+    ) -> int:
+        if target < 0:
+            return 0
+        if target == 0:
+            return 1
+        if dp_array[target] != -1:
+            return dp_array[target]
+        answer = sum(
+            count_of_possible_combinations_with_dp_array(target - item, dp_array)
+            for item in array
+        )
+        dp_array[target] = answer
+        return answer
+
+    dp_array = [-1] * (target + 1)
+    return count_of_possible_combinations_with_dp_array(target, dp_array)
+
+
+def combination_sum_iv_bottom_up(n: int, array: list[int], target: int) -> int:
+    """
+    Function checks the all possible combinations with using bottom up approach,
+    and returns the count of possible combination in O(N^2) Time Complexity
+    as we are using Dynamic programming array here.
+
+    >>> combination_sum_iv_bottom_up(3, [1,2,5], 5)
+    9
+    """
+
+    dp_array = [0] * (target + 1)
+    dp_array[0] = 1
+
+    for i in range(1, target + 1):
+        for j in range(n):
+            if i - array[j] >= 0:
+                dp_array[i] += dp_array[i - array[j]]
+
+    return dp_array[target]
 
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    n = 3
+    target = 5
+    array = [1, 2, 5]
+    print(combination_sum_iv(n, array, target))

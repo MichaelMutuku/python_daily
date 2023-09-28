@@ -2,6 +2,7 @@
 Title : Finding the value of magnitude of either the Casimir force, the surface area
 of one of the plates or distance between the plates provided that the other
 two parameters are given.
+
 Description : In quantum field theory, the Casimir effect is a physical force
 acting on the macroscopic boundaries of a confined space which arises from the
 quantum fluctuations of the field. It is a physical force exerted between separate
@@ -11,17 +12,22 @@ space between the objects. Since the strength of the force falls off rapidly wit
 distance it is only measurable when the distance between the objects is extremely
 small. On a submicron scale, this force becomes so strong that it becomes the
 dominant force between uncharged conductors.
+
 Dutch physicist Hendrik B. G. Casimir first proposed the existence of the force,
 and he formulated an experiment to detect it in 1948 while participating in research
 at Philips Research Labs. The classic form of his experiment used a pair of uncharged
 parallel metal plates in a vacuum, and successfully demonstrated the force to within
 15% of the value he had predicted according to his theory.
+
 The Casimir force F for idealized, perfectly conducting plates of surface area
 A square meter and placed at a distance of a meter apart with vacuum between
 them is expressed as -
+
 F = - ((Reduced Planck Constant ℏ) * c * Pi^2 * A) / (240 * a^4)
+
 Here, the negative sign indicates the force is attractive in nature. For the ease
 of calculation, only the magnitude of the force is considered.
+
 Source :
 - https://en.wikipedia.org/wiki/Casimir_effect
 - https://www.cs.mcgill.ca/~rwest/wikispeedia/wpcd/wp/c/Casimir_effect.htm
@@ -45,27 +51,36 @@ def casimir_force(force: float, area: float, distance: float) -> dict[str, float
     Input Parameters
     ----------------
     force -> Casimir Force : magnitude in Newtons
+
     area -> Surface area of each plate : magnitude in square meters
+
     distance -> Distance between two plates : distance in Meters
+
     Returns
     -------
     result : dict name, value pair of the parameter having Zero as it's value
+
     Returns the value of one of the parameters specified as 0, provided the values of
     other parameters are given.
     >>> casimir_force(force = 0, area = 4, distance = 0.03)
     {'force': 6.4248189174864216e-21}
+
     >>> casimir_force(force = 2635e-13, area = 0.0023, distance = 0)
     {'distance': 1.0323056015031114e-05}
+
     >>> casimir_force(force = 2737e-21, area = 0, distance = 0.0023746)
     {'area': 0.06688838837354052}
+
     >>> casimir_force(force = 3457e-12, area = 0, distance = 0)
     Traceback (most recent call last):
         ...
     ValueError: One and only one argument must be 0
+
     >>> casimir_force(force = 3457e-12, area = 0, distance = -0.00344)
     Traceback (most recent call last):
         ...
     ValueError: Distance can not be negative
+
     >>> casimir_force(force = -912e-12, area = 0, distance = 0.09374)
     Traceback (most recent call last):
         ...

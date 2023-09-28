@@ -16,6 +16,7 @@ WEEK_DAY_NAMES = {
 
 def get_week_day(year: int, month: int, day: int) -> str:
     """Returns the week-day name out of a given date.
+
     >>> get_week_day(2020, 10, 24)
     'Saturday'
     >>> get_week_day(2017, 10, 24)
@@ -28,6 +29,7 @@ def get_week_day(year: int, month: int, day: int) -> str:
     'Saturday'
     >>> get_week_day(2040, 3, 14)
     'Wednesday'
+
     """
     # minimal input check:
     assert len(str(year)) > 2, "year should be in YYYY format"

@@ -7,6 +7,7 @@ def quadratic_roots(a: int, b: int, c: int) -> tuple[complex, complex]:
     """
     Given the numerical coefficients a, b and c,
     calculates the roots for any quadratic equation of the form ax^2 + bx + c
+
     >>> quadratic_roots(a=1, b=3, c=-4)
     (1.0, -4.0)
     >>> quadratic_roots(5, 6, 1)

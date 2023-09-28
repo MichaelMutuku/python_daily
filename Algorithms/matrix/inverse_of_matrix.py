@@ -10,9 +10,11 @@ def inverse_of_matrix(matrix: list[list[float]]) -> list[list[float]]:
     A matrix multiplied with its inverse gives the identity matrix.
     This function finds the inverse of a 2x2 and 3x3 matrix.
     If the determinant of a matrix is 0, its inverse does not exist.
+
     Sources for fixing inaccurate float arithmetic:
     https://stackoverflow.com/questions/6563058/how-do-i-use-accurate-float-arithmetic-in-python
     https://docs.python.org/3/library/decimal.html
+
     Doctests for 2x2
     >>> inverse_of_matrix([[2, 5], [2, 0]])
     [[0.0, 0.5], [0.2, -0.2]]
@@ -26,6 +28,7 @@ def inverse_of_matrix(matrix: list[list[float]]) -> list[list[float]]:
     [[0.16666666666666666, -0.0625], [-0.3333333333333333, 0.25]]
     >>> inverse_of_matrix([[10, 5], [3, 2.5]])
     [[0.25, -0.5], [-0.3, 1.0]]
+
     Doctests for 3x3
     >>> inverse_of_matrix([[2, 5, 7], [2, 0, 1], [1, 2, 3]])
     [[2.0, 5.0, -4.0], [1.0, 1.0, -1.0], [-5.0, -12.0, 10.0]]
@@ -33,22 +36,27 @@ def inverse_of_matrix(matrix: list[list[float]]) -> list[list[float]]:
     Traceback (most recent call last):
         ...
     ValueError: This matrix has no inverse.
+
     >>> inverse_of_matrix([[],[]])
     Traceback (most recent call last):
         ...
     ValueError: Please provide a matrix of size 2x2 or 3x3.
+
     >>> inverse_of_matrix([[1, 2], [3, 4], [5, 6]])
     Traceback (most recent call last):
         ...
     ValueError: Please provide a matrix of size 2x2 or 3x3.
+
     >>> inverse_of_matrix([[1, 2, 1], [0,3, 4]])
     Traceback (most recent call last):
         ...
     ValueError: Please provide a matrix of size 2x2 or 3x3.
+
     >>> inverse_of_matrix([[1, 2, 3], [7, 8, 9], [7, 8, 9]])
     Traceback (most recent call last):
         ...
     ValueError: This matrix has no inverse.
+
     >>> inverse_of_matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
     [[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]
     """

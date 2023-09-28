@@ -1,8 +1,11 @@
 """
 Numerical integration or quadrature for a smooth function f with known values at x_i
+
 This method is the classical approach of suming 'Equally Spaced Abscissas'
+
 method 2:
 "Simpson Rule"
+
 """
 
 

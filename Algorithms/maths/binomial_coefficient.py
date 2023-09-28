@@ -1,6 +1,7 @@
 def binomial_coefficient(n, r):
     """
     Find binomial coefficient using pascals triangle.
+
     >>> binomial_coefficient(10, 5)
     252
     """
@@ -17,5 +18,3 @@ def binomial_coefficient(n, r):
 
 
 print(binomial_coefficient(n=10, r=5))
-Footer
-

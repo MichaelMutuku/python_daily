@@ -17,6 +17,7 @@ class Dice:
 def throw_dice(num_throws: int, num_dice: int = 2) -> list[float]:
     """
     Return probability list of all possible sums when throwing dice.
+
     >>> random.seed(0)
     >>> throw_dice(10, 1)
     [10.0, 0.0, 30.0, 50.0, 10.0, 0.0]

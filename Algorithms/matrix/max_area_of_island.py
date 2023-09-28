@@ -21,6 +21,7 @@ matrix = [
 def is_safe(row: int, col: int, rows: int, cols: int) -> bool:
     """
     Checking whether coordinate (row, col) is valid or not.
+
     >>> is_safe(0, 0, 5, 5)
     True
     >>> is_safe(-1,-1, 5, 5)
@@ -32,6 +33,7 @@ def is_safe(row: int, col: int, rows: int, cols: int) -> bool:
 def depth_first_search(row: int, col: int, seen: set, mat: list[list[int]]) -> int:
     """
     Returns the current area of the island
+
     >>> depth_first_search(0, 0, set(), matrix)
     0
     """
@@ -53,6 +55,7 @@ def depth_first_search(row: int, col: int, seen: set, mat: list[list[int]]) -> i
 def find_max_area(mat: list[list[int]]) -> int:
     """
     Finds the area of all islands and returns the maximum area.
+
     >>> find_max_area(matrix)
     6
     """
@@ -76,9 +79,11 @@ if __name__ == "__main__":
     Explanation:
     We are allowed to move in four directions (horizontal or vertical) so the possible
     in a matrix if we are at x and y position the possible moving are
+
     Directions are [(x, y+1), (x, y-1), (x+1, y), (x-1, y)] but we need to take care of
     boundary cases as well which are x and y can not be smaller than 0 and greater than
     the number of rows and columns respectively.
+
     Visualization
     mat = [
         [0,0,A,0,0,0,0,B,0,0,0,0,0],
@@ -90,6 +95,7 @@ if __name__ == "__main__":
         [0,0,0,0,0,0,0,F,F,F,0,0,0],
         [0,0,0,0,0,0,0,F,F,0,0,0,0]
     ]
+
     For visualization, I have defined the connected island with letters
     by observation, we can see that
         A island is of area 1
@@ -98,6 +104,7 @@ if __name__ == "__main__":
         D island is of area 5
         E island is of area 6 and
         F island is of area 5
+
     it has 6 unique islands of mentioned areas
     and the maximum of all of them is 6 so we return 6.
     """

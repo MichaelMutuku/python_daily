@@ -7,6 +7,7 @@ from __future__ import annotations
 def prime_factors(n: int) -> list[int]:
     """
     Returns prime factors of n as a list.
+
     >>> prime_factors(0)
     []
     >>> prime_factors(100)
@@ -30,6 +31,7 @@ def prime_factors(n: int) -> list[int]:
     Traceback (most recent call last):
         ...
     TypeError: '<=' not supported between instances of 'int' and 'list'
+
     """
     i = 2
     factors = []

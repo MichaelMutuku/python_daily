@@ -3,6 +3,7 @@ Given a function on floating number f(x) and two floating numbers ‘a’ and �
 f(a) * f(b) < 0 and f(x) is continuous in [a, b].
 Here f(x) represents algebraic or transcendental equation.
 Find root of function in interval [a, b] (Or find a value of x such that f(x) is 0)
+
 https://en.wikipedia.org/wiki/Bisection_method
 """
 
@@ -31,7 +32,7 @@ def bisection(a: float, b: float) -> float:
     3.158203125
     >>> bisection(2, 3)
     Traceback (most recent call last):
-    ...
+        ...
     ValueError: Wrong space!
     """
     # Bolzano theory in order to find if there is a root between a and b

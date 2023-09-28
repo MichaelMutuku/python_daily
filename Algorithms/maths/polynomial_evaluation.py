@@ -3,10 +3,12 @@ from collections.abc import Sequence
 
 def evaluate_poly(poly: Sequence[float], x: float) -> float:
     """Evaluate a polynomial f(x) at specified point x and return the value.
+
     Arguments:
     poly -- the coefficients of a polynomial as an iterable in order of
             ascending degree
     x -- the point at which to evaluate the polynomial
+
     >>> evaluate_poly((0.0, 0.0, 5.0, 9.3, 7.0), 10.0)
     79800.0
     """
@@ -15,15 +17,19 @@ def evaluate_poly(poly: Sequence[float], x: float) -> float:
 
 def horner(poly: Sequence[float], x: float) -> float:
     """Evaluate a polynomial at specified point using Horner's method.
+
     In terms of computational complexity, Horner's method is an efficient method
     of evaluating a polynomial. It avoids the use of expensive exponentiation,
     and instead uses only multiplication and addition to evaluate the polynomial
     in O(n), where n is the degree of the polynomial.
+
     https://en.wikipedia.org/wiki/Horner's_method
+
     Arguments:
     poly -- the coefficients of a polynomial as an iterable in order of
             ascending degree
     x -- the point at which to evaluate the polynomial
+
     >>> horner((0.0, 0.0, 5.0, 9.3, 7.0), 10.0)
     79800.0
     """

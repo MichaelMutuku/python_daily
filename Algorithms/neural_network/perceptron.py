@@ -1,6 +1,7 @@
 """
     Perceptron
     w = w + N * (d(k) - y) * x(k)
+
     Using perceptron network for oil analysis, with Measuring of 3 parameters
     that represent chemical characteristics we can classify the oil, in p1 or p2
     p1 = -1
@@ -25,6 +26,7 @@ class Perceptron:
         :param learning_rate: learning rate used in optimizing.
         :param epoch_number: number of epochs to train network on.
         :param bias: bias value for the network.
+
         >>> p = Perceptron([], (0, 1, 2))
         Traceback (most recent call last):
             ...

@@ -1,6 +1,7 @@
 """
 This is a pure Python implementation of the merge-insertion sort algorithm
 Source: https://en.wikipedia.org/wiki/Graham_scan
+
 For doctests run following command:
 python3 -m doctest -v graham_scan.py
 """
@@ -26,15 +27,19 @@ class Direction(Enum):
 
 def angle_comparer(point: tuple[int, int], minx: int, miny: int) -> float:
     """Return the angle toward to point from (minx, miny)
+
     :param point: The target point
            minx: The starting point's x
            miny: The starting point's y
     :return: the angle
+
     Examples:
     >>> angle_comparer((1,1), 0, 0)
     45.0
+
     >>> angle_comparer((100,1), 10, 10)
     -5.710593137499642
+
     >>> angle_comparer((5,5), 2, 3)
     33.690067525979785
     """
@@ -47,15 +52,19 @@ def check_direction(
     starting: tuple[int, int], via: tuple[int, int], target: tuple[int, int]
 ) -> Direction:
     """Return the direction toward to the line from via to target from starting
+
     :param starting: The starting point
            via: The via point
            target: The target point
     :return: the Direction
+
     Examples:
     >>> check_direction((1,1), (2,2), (3,3))
     Direction.straight
+
     >>> check_direction((60,1), (-50,199), (30,2))
     Direction.left
+
     >>> check_direction((0,0), (5,5), (10,0))
     Direction.right
     """
@@ -83,15 +92,20 @@ def check_direction(
 
 def graham_scan(points: list[tuple[int, int]]) -> list[tuple[int, int]]:
     """Pure implementation of graham scan algorithm in Python
+
     :param points: The unique points on coordinates.
     :return: The points on convex hell.
+
     Examples:
     >>> graham_scan([(9, 6), (3, 1), (0, 0), (5, 5), (5, 2), (7, 0), (3, 3), (1, 4)])
     [(0, 0), (7, 0), (9, 6), (5, 5), (1, 4)]
+
     >>> graham_scan([(0, 0), (1, 0), (1, 1), (0, 1)])
     [(0, 0), (1, 0), (1, 1), (0, 1)]
+
     >>> graham_scan([(0, 0), (1, 1), (2, 2), (3, 3), (-1, 2)])
     [(0, 0), (1, 1), (2, 2), (3, 3), (-1, 2)]
+
     >>> graham_scan([(-100, 20), (99, 3), (1, 10000001), (5133186, -25), (-66, -4)])
     [(5133186, -25), (1, 10000001), (-100, 20), (-66, -4)]
     """

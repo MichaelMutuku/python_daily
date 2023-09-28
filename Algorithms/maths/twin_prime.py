@@ -2,6 +2,7 @@
 == Twin Prime ==
 A number n+2 is said to be a Twin prime of number n if
 both n and n+2 are prime.
+
 Examples of Twin pairs: (3, 5), (5, 7), (11, 13), (17, 19), (29, 31), (41, 43), ...
 https://en.wikipedia.org/wiki/Twin_prime
 """
@@ -31,7 +32,8 @@ def twin_prime(number: int) -> int:
     TypeError: Input value of [number=6.0] must be an integer
     """
     if not isinstance(number, int):
-        raise TypeError(f"Input value of [number={number}] must be an integer")
+        msg = f"Input value of [number={number}] must be an integer"
+        raise TypeError(msg)
     if is_prime(number) and is_prime(number + 2):
         return number + 2
     else:

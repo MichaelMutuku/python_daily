@@ -1,12 +1,13 @@
-
 """
 developed by: markmelnic
 original repo: https://github.com/markmelnic/Scoring-Algorithm
+
 Analyse data using a range based percentual proximity algorithm
 and calculate the linear maximum likelihood estimation.
 The basic principle is that all values supplied will be broken
 down to a range from 0 to 1 and each column's score will be added
 up to get the total score.
+
 ==========
 Example for data of vehicles
 price|mileage|registration_year
@@ -14,6 +15,7 @@ price|mileage|registration_year
 22k  |50k    |2011
 23k  |90k    |2015
 16k  |210k   |2010
+
 We want the vehicle with the lowest price,
 lowest mileage but newest registration year.
 Thus the weights for each column are as follows:
@@ -66,7 +68,8 @@ def calculate_each_score(
 
         # weight not 0 or 1
         else:
-            raise ValueError(f"Invalid weight of {weight:f} provided")
+            msg = f"Invalid weight of {weight:f} provided"
+            raise ValueError(msg)
 
         score_lists.append(score)
 
@@ -98,6 +101,7 @@ def procentual_proximity(
     possible values - 0 / 1
     0 if lower values have higher weight in the data set
     1 if higher values have higher weight in the data set
+
     >>> procentual_proximity([[20, 60, 2012],[23, 90, 2015],[22, 50, 2011]], [0, 0, 1])
     [[20, 60, 2012, 2.0], [23, 90, 2015, 1.0], [22, 50, 2011, 1.3333333333333335]]
     """

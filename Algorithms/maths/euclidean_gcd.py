@@ -6,6 +6,7 @@ def euclidean_gcd(a: int, b: int) -> int:
     Examples:
     >>> euclidean_gcd(3, 5)
     1
+
     >>> euclidean_gcd(6, 3)
     3
     """
@@ -17,9 +18,11 @@ def euclidean_gcd(a: int, b: int) -> int:
 def euclidean_gcd_recursive(a: int, b: int) -> int:
     """
     Recursive method for euclicedan gcd algorithm
+
     Examples:
     >>> euclidean_gcd_recursive(3, 5)
     1
+
     >>> euclidean_gcd_recursive(6, 3)
     3
     """

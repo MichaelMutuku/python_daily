@@ -2,6 +2,7 @@
 This implementation demonstrates how to generate the elements of a Pascal's triangle.
 The element havingva row index of r and column index of c can be derivedvas follows:
 triangle[r][c] = triangle[r-1][c-1]+triangle[r-1][c]
+
 A Pascal's triangle is a triangular array containing binomial coefficients.
 https://en.wikipedia.org/wiki/Pascal%27s_triangle
 """
@@ -113,8 +114,10 @@ def generate_pascal_triangle_optimized(num_rows: int) -> list[list[int]]:
     according to the given input of number of rows of Pascal's triangle to be generated.
     It reduces the operations done to generate a row by half
     by eliminating redundant calculations.
+
     :param num_rows: Integer specifying the number of rows in the Pascal's triangle
     :return: 2-D List (matrix) representing the Pascal's triangle
+
     Return the Pascal's triangle of given rows
     >>> generate_pascal_triangle_optimized(3)
     [[1], [1, 1], [1, 2, 1]]

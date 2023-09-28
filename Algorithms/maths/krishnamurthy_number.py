@@ -4,6 +4,7 @@ It is also known as Peterson Number
 A Krishnamurthy Number is a number whose sum of the
 factorial of the digits equals to the original
 number itself.
+
 For example: 145 = 1! + 4! + 5!
     So, 145 is a Krishnamurthy Number
 """

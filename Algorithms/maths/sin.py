@@ -1,10 +1,14 @@
 """
 Calculate sin function.
+
 It's not a perfect function so I am rounding the result to 10 decimal places by default.
+
 Formula: sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ...
 Where: x = angle in randians.
+
 Source:
     https://www.homeschoolmath.net/teaching/sine_calculator.php
+
 """
 
 from math import factorial, radians
@@ -15,6 +19,7 @@ def sin(
 ) -> float:
     """
     Implement sin function.
+
     >>> sin(0.0)
     0.0
     >>> sin(90.0)

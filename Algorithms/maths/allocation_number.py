@@ -14,6 +14,7 @@ def allocation_num(number_of_bytes: int, partitions: int) -> list[str]:
     :param number_of_bytes: the total of bytes.
     :param partitions: the number of partition need to be allocated.
     :return: list of bytes to be assigned to each worker thread
+
     >>> allocation_num(16647, 4)
     ['1-4161', '4162-8322', '8323-12483', '12484-16647']
     >>> allocation_num(50000, 5)

@@ -11,6 +11,7 @@ def bailey_borwein_plouffe(digit_position: int, precision: int = 1000) -> str:
     A higher number reduces the chance of an error but increases the runtime.
     @return: a hexadecimal digit representing the digit at the nth position
     in pi's decimal expansion.
+
     >>> "".join(bailey_borwein_plouffe(i) for i in range(1, 11))
     '243f6a8885'
     >>> bailey_borwein_plouffe(5, 10000)
@@ -66,7 +67,7 @@ def _subsum(
     @param precision: same as precision in main function
     @return: floating-point number whose integer part is not important
     """
-    sum = 0.0
+    total = 0.0
     for sum_index in range(digit_pos_to_extract + precision):
         denominator = 8 * sum_index + denominator_addend
         if sum_index < digit_pos_to_extract:
@@ -78,8 +79,8 @@ def _subsum(
             )
         else:
             exponential_term = pow(16, digit_pos_to_extract - 1 - sum_index)
-        sum += exponential_term / denominator
-    return sum
+        total += exponential_term / denominator
+    return total
 
 
 if __name__ == "__main__":

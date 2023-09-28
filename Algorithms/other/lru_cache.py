@@ -10,6 +10,7 @@ U = TypeVar("U")
 class DoubleLinkedListNode(Generic[T, U]):
     """
     Double Linked List Node built specifically for LRU Cache
+
     >>> DoubleLinkedListNode(1,1)
     Node: key: 1, val: 1, has next: False, has prev: False
     """
@@ -30,26 +31,33 @@ class DoubleLinkedListNode(Generic[T, U]):
 class DoubleLinkedList(Generic[T, U]):
     """
     Double Linked List built specifically for LRU Cache
+
     >>> dll: DoubleLinkedList = DoubleLinkedList()
     >>> dll
     DoubleLinkedList,
         Node: key: None, val: None, has next: True, has prev: False,
         Node: key: None, val: None, has next: False, has prev: True
+
     >>> first_node = DoubleLinkedListNode(1,10)
     >>> first_node
     Node: key: 1, val: 10, has next: False, has prev: False
+
+
     >>> dll.add(first_node)
     >>> dll
     DoubleLinkedList,
         Node: key: None, val: None, has next: True, has prev: False,
         Node: key: 1, val: 10, has next: True, has prev: True,
         Node: key: None, val: None, has next: False, has prev: True
+
     >>> # node is mutated
     >>> first_node
     Node: key: 1, val: 10, has next: True, has prev: True
+
     >>> second_node = DoubleLinkedListNode(2,20)
     >>> second_node
     Node: key: 2, val: 20, has next: False, has prev: False
+
     >>> dll.add(second_node)
     >>> dll
     DoubleLinkedList,
@@ -57,6 +65,7 @@ class DoubleLinkedList(Generic[T, U]):
         Node: key: 1, val: 10, has next: True, has prev: True,
         Node: key: 2, val: 20, has next: True, has prev: True,
         Node: key: None, val: None, has next: False, has prev: True
+
     >>> removed_node = dll.remove(first_node)
     >>> assert removed_node == first_node
     >>> dll
@@ -64,20 +73,26 @@ class DoubleLinkedList(Generic[T, U]):
         Node: key: None, val: None, has next: True, has prev: False,
         Node: key: 2, val: 20, has next: True, has prev: True,
         Node: key: None, val: None, has next: False, has prev: True
+
+
     >>> # Attempt to remove node not on list
     >>> removed_node = dll.remove(first_node)
     >>> removed_node is None
     True
+
     >>> # Attempt to remove head or rear
     >>> dll.head
     Node: key: None, val: None, has next: True, has prev: False
     >>> dll.remove(dll.head) is None
     True
+
     >>> # Attempt to remove head or rear
     >>> dll.rear
     Node: key: None, val: None, has next: False, has prev: True
     >>> dll.remove(dll.rear) is None
     True
+
+
     """
 
     def __init__(self) -> None:
@@ -114,6 +129,7 @@ class DoubleLinkedList(Generic[T, U]):
     ) -> DoubleLinkedListNode[T, U] | None:
         """
         Removes and returns the given node from the list
+
         Returns None if node.prev or node.next is None
         """
 
@@ -131,48 +147,64 @@ class LRUCache(Generic[T, U]):
     """
     LRU Cache to store a given capacity of data. Can be used as a stand-alone object
     or as a function decorator.
+
     >>> cache = LRUCache(2)
+
     >>> cache.put(1, 1)
     >>> cache.put(2, 2)
     >>> cache.get(1)
     1
+
     >>> cache.list
     DoubleLinkedList,
         Node: key: None, val: None, has next: True, has prev: False,
         Node: key: 2, val: 2, has next: True, has prev: True,
         Node: key: 1, val: 1, has next: True, has prev: True,
         Node: key: None, val: None, has next: False, has prev: True
+
     >>> cache.cache  # doctest: +NORMALIZE_WHITESPACE
     {1: Node: key: 1, val: 1, has next: True, has prev: True, \
      2: Node: key: 2, val: 2, has next: True, has prev: True}
+
     >>> cache.put(3, 3)
+
     >>> cache.list
     DoubleLinkedList,
         Node: key: None, val: None, has next: True, has prev: False,
         Node: key: 1, val: 1, has next: True, has prev: True,
         Node: key: 3, val: 3, has next: True, has prev: True,
         Node: key: None, val: None, has next: False, has prev: True
+
     >>> cache.cache  # doctest: +NORMALIZE_WHITESPACE
     {1: Node: key: 1, val: 1, has next: True, has prev: True, \
      3: Node: key: 3, val: 3, has next: True, has prev: True}
+
     >>> cache.get(2) is None
     True
+
     >>> cache.put(4, 4)
+
     >>> cache.get(1) is None
     True
+
     >>> cache.get(3)
     3
+
     >>> cache.get(4)
     4
+
     >>> cache
     CacheInfo(hits=3, misses=2, capacity=2, current size=2)
+
     >>> @LRUCache.decorator(100)
     ... def fib(num):
     ...     if num in (1, 2):
     ...         return 1
     ...     return fib(num - 1) + fib(num - 2)
+
     >>> for i in range(1, 100):
     ...     res = fib(i)
+
     >>> fib.cache_info()
     CacheInfo(hits=194, misses=99, capacity=100, current size=99)
     """
@@ -202,9 +234,12 @@ class LRUCache(Generic[T, U]):
     def __contains__(self, key: T) -> bool:
         """
         >>> cache = LRUCache(1)
+
         >>> 1 in cache
         False
+
         >>> cache.put(1, 1)
+
         >>> 1 in cache
         True
         """
@@ -268,6 +303,7 @@ class LRUCache(Generic[T, U]):
     ) -> Callable[[Callable[[T], U]], Callable[..., U]]:
         """
         Decorator version of LRU Cache
+
         Decorated function must be function of T -> U
         """
 

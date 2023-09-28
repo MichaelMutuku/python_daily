@@ -2,7 +2,9 @@ def manhattan_distance(point_a: list, point_b: list) -> float:
     """
     Expectts two list of numbers representing two points in the same
     n-dimensional space
+
     https://en.wikipedia.org/wiki/Taxicab_geometry
+
     >>> manhattan_distance([1,1], [2,2])
     2.0
     >>> manhattan_distance([1.5,1.5], [2,2])
@@ -13,15 +15,15 @@ def manhattan_distance(point_a: list, point_b: list) -> float:
     9.0
     >>> manhattan_distance([1,1], None)
     Traceback (most recent call last):
-         ...
+        ...
     ValueError: Missing an input
     >>> manhattan_distance([1,1], [2, 2, 2])
     Traceback (most recent call last):
-         ...
+        ...
     ValueError: Both points must be in the same n-dimensional space
     >>> manhattan_distance([1,"one"], [2, 2, 2])
     Traceback (most recent call last):
-         ...
+        ...
     TypeError: Expected a list of numbers as input, found str
     >>> manhattan_distance(1, [2, 2, 2])
     Traceback (most recent call last):
@@ -64,14 +66,14 @@ def _validate_point(point: list[float]) -> None:
         if isinstance(point, list):
             for item in point:
                 if not isinstance(item, (int, float)):
-                    raise TypeError(
-                        f"Expected a list of numbers as input, "
-                        f"found {type(item).__name__}"
+                    msg = (
+                        "Expected a list of numbers as input, found "
+                        f"{type(item).__name__}"
                     )
+                    raise TypeError(msg)
         else:
-            raise TypeError(
-                f"Expected a list of numbers as input, found {type(point).__name__}"
-            )
+            msg = f"Expected a list of numbers as input, found {type(point).__name__}"
+            raise TypeError(msg)
     else:
         raise ValueError("Missing an input")
 
@@ -79,6 +81,7 @@ def _validate_point(point: list[float]) -> None:
 def manhattan_distance_one_liner(point_a: list, point_b: list) -> float:
     """
     Version with one liner
+
     >>> manhattan_distance_one_liner([1,1], [2,2])
     2.0
     >>> manhattan_distance_one_liner([1.5,1.5], [2,2])

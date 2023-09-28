@@ -1,6 +1,7 @@
 """
 Given an array of integer elements and an integer 'k', we are required to find the
 maximum sum of 'k' consecutive elements in the array.
+
 Instead of using a nested for loop, in a Brute force approach we will use a technique
 called 'Window sliding technique' where the nested loops can be converted to a single
 loop to reduce time complexity.

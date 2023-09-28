@@ -6,6 +6,7 @@ def perfect_square(num: int) -> bool:
     Check if a number is perfect square number or not
     :param num: the number to be checked
     :return: True if number is square number, otherwise False
+
     >>> perfect_square(9)
     True
     >>> perfect_square(16)
@@ -25,6 +26,7 @@ def perfect_square_binary_search(n: int) -> bool:
     Check if a number is perfect square using binary search.
     Time complexity : O(Log(n))
     Space complexity: O(1)
+
     >>> perfect_square_binary_search(9)
     True
     >>> perfect_square_binary_search(16)

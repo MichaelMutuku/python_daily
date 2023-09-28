@@ -1,7 +1,7 @@
-
 """
 Given a grid, where you start from the top left position [0, 0],
 you want to find how many paths you can take to get to the bottom right position.
+
 start here  ->   0  0  0  0
                  1  1  0  0
                  0  0  0  1
@@ -9,6 +9,7 @@ start here  ->   0  0  0  0
 how many 'distinct' paths can you take to get to the finish?
 Using a recursive depth-first search algorithm below, you are able to
 find the number of distinct unique paths (count).
+
 '*' will demonstrate a path
 In the example above, there are two distinct paths:
 1.                2.
@@ -22,10 +23,12 @@ In the example above, there are two distinct paths:
 def depth_first_search(grid: list[list[int]], row: int, col: int, visit: set) -> int:
     """
     Recursive Backtracking Depth First Search Algorithm
+
     Starting from top left of a matrix, count the number of
     paths that can reach the bottom right of a matrix.
     1 represents a block (inaccessible)
     0 represents a valid space (accessible)
+
     0  0  0  0
     1  1  0  0
     0  0  0  1
@@ -33,6 +36,7 @@ def depth_first_search(grid: list[list[int]], row: int, col: int, visit: set) ->
     >>> grid = [[0, 0, 0, 0], [1, 1, 0, 0], [0, 0, 0, 1], [0, 1, 0, 0]]
     >>> depth_first_search(grid, 0, 0, set())
     2
+
     0  0  0  0  0
     0  1  1  1  0
     0  1  1  1  0

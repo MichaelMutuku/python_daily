@@ -2,32 +2,46 @@
 """
 Simulation of the Quantum Key Distribution (QKD) protocol called BB84,
 created by Charles Bennett and Gilles Brassard in 1984.
+
 BB84 is a key-distribution protocol that ensures secure key distribution
 using qubits instead of classical bits. The generated key is the result
 of simulating a quantum circuit. Our algorithm to construct the circuit
 is as follows:
+
 Alice generates two binary strings. One encodes the basis for each qubit:
+
  - 0 -> {0,1} basis.
  - 1 -> {+,-} basis.
+
 The other encodes the state:
+
  - 0 -> |0> or |+>.
  - 1 -> |1> or |->.
+
 Bob also generates a binary string and uses the same convention to choose
 a basis for measurement. Based on the following results, we follow the
 algorithm below:
+
 X|0> = |1>
+
 H|0> = |+>
+
 HX|0> = |->
+
 1. Whenever Alice wants to encode 1 in a qubit, she applies an
 X (NOT) gate to the qubit. To encode 0, no action is needed.
+
 2. Wherever she wants to encode it in the {+,-} basis, she applies
 an H (Hadamard) gate. No action is necessary to encode a qubit in
 the {0,1} basis.
+
 3. She then sends the qubits to Bob (symbolically represented in
 this circuit using wires).
+
 4. Bob measures the qubits according to his binary string for
 measurement. To measure a qubit in the {+,-} basis, he applies
 an H gate to the corresponding qubit and then performs a measurement.
+
 References:
 https://en.wikipedia.org/wiki/BB84
 https://qiskit.org/textbook/ch-algorithms/quantum-key-distribution.html
@@ -42,14 +56,18 @@ def bb84(key_len: int = 8, seed: int | None = None) -> str:
     The two parties in the key distribution are called Alice and Bob.
     Args:
         key_len: The length of the generated key in bits. The default is 8.
+
         seed: Seed for the random number generator.
         Mostly used for testing. Default is None.
+
     Returns:
         key: The key generated using BB84 protocol.
+
     >>> bb84(16, seed=0)
-    '1101101100010000'
+    '0111110111010010'
+
     >>> bb84(8, seed=0)
-    '01011011'
+    '10110001'
     """
     # Set up the random number generator.
     rng = np.random.default_rng(seed=seed)

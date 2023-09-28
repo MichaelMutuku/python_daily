@@ -3,6 +3,7 @@
 The Liouville Lambda function, denoted by λ(n)
 and λ(n) is 1 if n is the product of an even number of prime numbers,
 and -1 if it is the product of an odd number of primes.
+
 https://en.wikipedia.org/wiki/Liouville_function
 """
 
@@ -32,7 +33,8 @@ def liouville_lambda(number: int) -> int:
     TypeError: Input value of [number=11.0] must be an integer
     """
     if not isinstance(number, int):
-        raise TypeError(f"Input value of [number={number}] must be an integer")
+        msg = f"Input value of [number={number}] must be an integer"
+        raise TypeError(msg)
     if number < 1:
         raise ValueError("Input must be a positive integer")
     return -1 if len(prime_factors(number)) % 2 else 1

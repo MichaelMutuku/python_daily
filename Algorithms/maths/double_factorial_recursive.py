@@ -2,8 +2,10 @@ def double_factorial(n: int) -> int:
     """
     Compute double factorial using recursive method.
     Recursion can be costly for large numbers.
+
     To learn about the theory behind this algorithm:
     https://en.wikipedia.org/wiki/Double_factorial
+
     >>> import math
     >>> all(double_factorial(i) == math.prod(range(i, 0, -2)) for i in range(20))
     True

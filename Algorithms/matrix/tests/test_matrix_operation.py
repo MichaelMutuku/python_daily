@@ -1,5 +1,6 @@
 """
 Testing here assumes that numpy and linalg is ALWAYS correct!!!!
+
 If running from PyCharm you can place the following line in "Additional Arguments" for
 the pytest run configuration
 -vv -m mat_ops -p no:cacheprovider

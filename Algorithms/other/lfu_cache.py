@@ -10,6 +10,7 @@ U = TypeVar("U")
 class DoubleLinkedListNode(Generic[T, U]):
     """
     Double Linked List Node built specifically for LFU Cache
+
     >>> node = DoubleLinkedListNode(1,1)
     >>> node
     Node: key: 1, val: 1, freq: 0, has next: False, has prev: False
@@ -31,26 +32,33 @@ class DoubleLinkedListNode(Generic[T, U]):
 class DoubleLinkedList(Generic[T, U]):
     """
     Double Linked List built specifically for LFU Cache
+
     >>> dll: DoubleLinkedList = DoubleLinkedList()
     >>> dll
     DoubleLinkedList,
         Node: key: None, val: None, freq: 0, has next: True, has prev: False,
         Node: key: None, val: None, freq: 0, has next: False, has prev: True
+
     >>> first_node = DoubleLinkedListNode(1,10)
     >>> first_node
     Node: key: 1, val: 10, freq: 0, has next: False, has prev: False
+
+
     >>> dll.add(first_node)
     >>> dll
     DoubleLinkedList,
         Node: key: None, val: None, freq: 0, has next: True, has prev: False,
         Node: key: 1, val: 10, freq: 1, has next: True, has prev: True,
         Node: key: None, val: None, freq: 0, has next: False, has prev: True
+
     >>> # node is mutated
     >>> first_node
     Node: key: 1, val: 10, freq: 1, has next: True, has prev: True
+
     >>> second_node = DoubleLinkedListNode(2,20)
     >>> second_node
     Node: key: 2, val: 20, freq: 0, has next: False, has prev: False
+
     >>> dll.add(second_node)
     >>> dll
     DoubleLinkedList,
@@ -58,6 +66,7 @@ class DoubleLinkedList(Generic[T, U]):
         Node: key: 1, val: 10, freq: 1, has next: True, has prev: True,
         Node: key: 2, val: 20, freq: 1, has next: True, has prev: True,
         Node: key: None, val: None, freq: 0, has next: False, has prev: True
+
     >>> removed_node = dll.remove(first_node)
     >>> assert removed_node == first_node
     >>> dll
@@ -65,20 +74,26 @@ class DoubleLinkedList(Generic[T, U]):
         Node: key: None, val: None, freq: 0, has next: True, has prev: False,
         Node: key: 2, val: 20, freq: 1, has next: True, has prev: True,
         Node: key: None, val: None, freq: 0, has next: False, has prev: True
+
+
     >>> # Attempt to remove node not on list
     >>> removed_node = dll.remove(first_node)
     >>> removed_node is None
     True
+
     >>> # Attempt to remove head or rear
     >>> dll.head
     Node: key: None, val: None, freq: 0, has next: True, has prev: False
     >>> dll.remove(dll.head) is None
     True
+
     >>> # Attempt to remove head or rear
     >>> dll.rear
     Node: key: None, val: None, freq: 0, has next: False, has prev: True
     >>> dll.remove(dll.rear) is None
     True
+
+
     """
 
     def __init__(self) -> None:
@@ -131,6 +146,7 @@ class DoubleLinkedList(Generic[T, U]):
     ) -> DoubleLinkedListNode[T, U] | None:
         """
         Removes and returns the given node from the list
+
         Returns None if node.prev or node.next is None
         """
 
@@ -148,6 +164,7 @@ class LFUCache(Generic[T, U]):
     """
     LFU Cache to store a given capacity of data. Can be used as a stand-alone object
     or as a function decorator.
+
     >>> cache = LFUCache(2)
     >>> cache.put(1, 1)
     >>> cache.put(2, 2)
@@ -170,8 +187,10 @@ class LFUCache(Generic[T, U]):
     ...     if num in (1, 2):
     ...         return 1
     ...     return fib(num - 1) + fib(num - 2)
+
     >>> for i in range(1, 101):
     ...     res = fib(i)
+
     >>> fib.cache_info()
     CacheInfo(hits=196, misses=100, capacity=100, current_size=100)
     """
@@ -201,8 +220,10 @@ class LFUCache(Generic[T, U]):
     def __contains__(self, key: T) -> bool:
         """
         >>> cache = LFUCache(1)
+
         >>> 1 in cache
         False
+
         >>> cache.put(1, 1)
         >>> 1 in cache
         True
@@ -264,6 +285,7 @@ class LFUCache(Generic[T, U]):
     ) -> Callable[[Callable[[T], U]], Callable[..., U]]:
         """
         Decorator version of LFU Cache
+
         Decorated function must be function of T -> U
         """
 

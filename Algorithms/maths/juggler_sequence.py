@@ -4,6 +4,7 @@ Juggler sequence start with any positive integer n. The next term is
 obtained as follows:
     If n term is even, the next term is floor value of square root of n .
     If n is odd, the next term is floor value of 3 time the square root of n.
+
 https://en.wikipedia.org/wiki/Juggler_sequence
 """
 
@@ -39,9 +40,11 @@ def juggler_sequence(number: int) -> list[int]:
     ValueError: Input value of [number=-1] must be a positive integer
     """
     if not isinstance(number, int):
-        raise TypeError(f"Input value of [number={number}] must be an integer")
+        msg = f"Input value of [number={number}] must be an integer"
+        raise TypeError(msg)
     if number < 1:
-        raise ValueError(f"Input value of [number={number}] must be a positive integer")
+        msg = f"Input value of [number={number}] must be a positive integer"
+        raise ValueError(msg)
     sequence = [number]
     while number != 1:
         if number % 2 == 0:

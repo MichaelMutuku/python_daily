@@ -2,6 +2,7 @@
 == Pronic Number ==
 A number n is said to be a Proic number if
 there exists an integer m such that n = m * (m + 1)
+
 Examples of Proic Numbers: 0, 2, 6, 12, 20, 30, 42, 56, 72, 90, 110 ...
 https://en.wikipedia.org/wiki/Pronic_number
 """
@@ -40,7 +41,8 @@ def is_pronic(number: int) -> bool:
     TypeError: Input value of [number=6.0] must be an integer
     """
     if not isinstance(number, int):
-        raise TypeError(f"Input value of [number={number}] must be an integer")
+        msg = f"Input value of [number={number}] must be an integer"
+        raise TypeError(msg)
     if number < 0 or number % 2 == 1:
         return False
     number_sqrt = int(number**0.5)

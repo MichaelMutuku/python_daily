@@ -21,6 +21,7 @@ def calculate_prob(text: str) -> None:
     1) Entropy of information based on 1 alphabet
     2) Entropy of information based on couples of 2 alphabet
     3) print Entropy of H(X n∣Xn−1)
+
     Text from random books. Also, random quotes.
     >>> text = ("Behind Winston’s back the voice "
     ...         "from the telescreen was still "
@@ -29,6 +30,7 @@ def calculate_prob(text: str) -> None:
     4.0
     6.0
     2.0
+
     >>> text = ("The Ministry of Truth—Minitrue, in Newspeak [Newspeak was the official"
     ...         "face in elegant lettering, the three")
     >>> calculate_prob(text)
@@ -99,7 +101,7 @@ def analyze_text(text: str) -> tuple[dict, dict]:
 
     # first case when we have space at start.
     two_char_strings[" " + text[0]] += 1
-    for i in range(0, len(text) - 1):
+    for i in range(len(text) - 1):
         single_char_strings[text[i]] += 1
         two_char_strings[text[i : i + 2]] += 1
     return single_char_strings, two_char_strings

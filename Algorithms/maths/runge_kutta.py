@@ -4,13 +4,16 @@ import numpy as np
 def runge_kutta(f, y0, x0, h, x_end):
     """
     Calculate the numeric solution at each step to the ODE f(x, y) using RK4
+
     https://en.wikipedia.org/wiki/Runge-Kutta_methods
+
     Arguments:
     f -- The ode as a function of x and y
     y0 -- the initial value for y
     x0 -- the initial value for x
     h -- the stepsize
     x_end -- the end value for x
+
     >>> # the exact solution is math.exp(x)
     >>> def f(x, y):
     ...     return y

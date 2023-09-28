@@ -6,16 +6,22 @@ def pi(precision: int) -> str:
     """
     The Chudnovsky algorithm is a fast method for calculating the digits of PI,
     based on Ramanujan’s PI formulae.
+
     https://en.wikipedia.org/wiki/Chudnovsky_algorithm
+
     PI = constant_term / ((multinomial_term * linear_term) / exponential_term)
         where constant_term = 426880 * sqrt(10005)
+
     The linear_term and the exponential_term can be defined iteratively as follows:
         L_k+1 = L_k + 545140134            where L_0 = 13591409
         X_k+1 = X_k * -262537412640768000  where X_0 = 1
+
     The multinomial_term is defined as follows:
         6k! / ((3k)! * (k!) ^ 3)
             where k is the k_th iteration.
+
     This algorithm correctly calculates around 14 digits of PI per iteration
+
     >>> pi(10)
     '3.14159265'
     >>> pi(100)

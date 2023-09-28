@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 
 """
@@ -6,6 +5,7 @@ Davis–Putnam–Logemann–Loveland (DPLL) algorithm is a complete, backtrackin
 search algorithm for deciding the satisfiability of propositional logic formulae in
 conjunctive normal form, i.e, for solving the Conjunctive Normal Form SATisfiability
 (CNF-SAT) problem.
+
 For more information about the algorithm: https://en.wikipedia.org/wiki/DPLL_algorithm
 """
 from __future__ import annotations
@@ -21,6 +21,7 @@ class Clause:
     For example:
         {A1, A2, A3'} is the clause (A1 v A2 v A3')
         {A5', A2', A1} is the clause (A5' v A2' v A1)
+
     Create model
     >>> clause = Clause(["A1", "A2'", "A3"])
     >>> clause.evaluate({"A1": True})
@@ -153,6 +154,7 @@ def generate_parameters(formula: Formula) -> tuple[list[Clause], list[str]]:
     For example,
         Symbol of A3 is A3.
         Symbol of A5' is A5.
+
     >>> formula = Formula([Clause(["A1", "A2'", "A3"]), Clause(["A5'", "A2'", "A1"])])
     >>> clauses, symbols = generate_parameters(formula)
     >>> clauses_list = [str(i) for i in clauses]
@@ -186,8 +188,10 @@ def find_pure_symbols(
     2. Find symbols that occur only in one form in the rest of the clauses.
     3. Assign value True or False depending on whether the symbols occurs
     in normal or complemented form respectively.
+
     >>> formula = Formula([Clause(["A1", "A2'", "A3"]), Clause(["A5'", "A2'", "A1"])])
     >>> clauses, symbols = generate_parameters(formula)
+
     >>> pure_symbols, values = find_pure_symbols(clauses, symbols, {})
     >>> pure_symbols
     ['A1', 'A2', 'A3', 'A5']
@@ -234,10 +238,12 @@ def find_unit_clauses(
     2. Find symbols in a clause where all other literals are assigned False.
     3. Assign True or False depending on whether the symbols occurs in
     normal or complemented form respectively.
+
     >>> clause1 = Clause(["A4", "A3", "A5'", "A1", "A3'"])
     >>> clause2 = Clause(["A4"])
     >>> clause3 = Clause(["A3"])
     >>> clauses, symbols = generate_parameters(Formula([clause1, clause2, clause3]))
+
     >>> unit_clauses, values = find_unit_clauses(clauses, {})
     >>> unit_clauses
     ['A4', 'A3']
@@ -247,7 +253,7 @@ def find_unit_clauses(
     unit_symbols = []
     for clause in clauses:
         if len(clause) == 1:
-            unit_symbols.append(list(clause.literals.keys())[0])
+            unit_symbols.append(next(iter(clause.literals.keys())))
         else:
             f_count, n_count = 0, 0
             for literal, value in clause.literals.items():
@@ -277,8 +283,10 @@ def dpll_algorithm(
     2. If some clause in clauses is False, return False.
     3. Find pure symbols.
     4. Find unit symbols.
+
     >>> formula = Formula([Clause(["A4", "A3", "A5'", "A1", "A3'"]), Clause(["A4"])])
     >>> clauses, symbols = generate_parameters(formula)
+
     >>> soln, model = dpll_algorithm(clauses, symbols, {})
     >>> soln
     True
